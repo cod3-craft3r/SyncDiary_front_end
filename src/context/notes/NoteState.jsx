@@ -61,7 +61,24 @@ const NoteState = (props) => {
 
   const [notes, setNotes] = useState(sampleNotes);
 
-  return <noteContext.Provider value={{notes, setNotes}}>{props.children}</noteContext.Provider>;
+  const addNote = () => {
+    const newNote = {
+      "_id": "651d53ec59935996ae143035",
+      "user": "651b20aed2242793d3458b55",
+      "title": "random note being added",
+      "descr": "this is just a test note",
+      "tag": "development",
+      "timestamp": "2023-10-04T12:00:44.073Z",
+      "__v": 0
+    };
+    setNotes(sampleNotes.push(newNote));
+  };
+  
+  // const deleteNote = (id) => {
+  //   setNotes(sampleNotes)
+  // };
+
+  return <noteContext.Provider value={{notes, setNotes, addNote}}>{props.children}</noteContext.Provider>;
 };
 
 export default NoteState;

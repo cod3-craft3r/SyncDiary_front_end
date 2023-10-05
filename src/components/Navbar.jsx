@@ -1,5 +1,5 @@
 const Navbar = () => {
-  return <div className="w-screen h-10 bg-secondary p-2">
+  return <div className="items-center justify-center w-screen h-10 bg-secondary p-2 text-center">
     <a href="http://localhost:5173/" className="text-primary">SyncDiary</a>
   </div>
 }

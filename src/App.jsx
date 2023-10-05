@@ -1,10 +1,14 @@
 import NoteState from './context/notes/NoteState';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
+import Modal from './components/UI/Modal';
+import Alert from './components/UI/Alert';
 
 function App() {
   return (
     <NoteState>
+      {/* <Alert /> */}
+      {/* <Modal /> */}
       <Navbar />
       <Home />
     </NoteState>
