@@ -1,15 +1,25 @@
+import { useContext } from 'react';
+import noteContext from '../../context/notes/note-context';
+
 const Card = ({ note }) => {
+  const { deleteNote } = useContext(noteContext);
+
+  const deletionHandler = () => {
+    deleteNote(note._id);
+  };
+
   return (
-    <div className="bg-background rounded p-2 m-2 cursor-pointer">
+    <div className="bg-secondary rounded p-2 m-2 cursor-pointer">
       <h3 className="flex text-xl font-semibold mb-1 items-center">
         <span>{note.title}</span>
 
         <span>
           <svg
+            onClick={deletionHandler}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="#d8524a"
-            className="w-4 h-4 ml-2 hover:bg-secondary hover:rounded-sm"
+            className="w-4 h-4 ml-2 font-normal"
           >
             <path
               fillRule="evenodd"
@@ -21,8 +31,8 @@ const Card = ({ note }) => {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
-          fill=""
-          className="w-4 h-4 ml-2 hover:bg-secondary hover:rounded-sm"
+          fill="currentColor"
+          className="w-4 h-4 ml-2 font-normal"
         >
           <path d="M2.695 14.763l-1.262 3.154a.5.5 0 00.65.65l3.155-1.262a4 4 0 001.343-.885L17.5 5.5a2.121 2.121 0 00-3-3L3.58 13.42a4 4 0 00-.885 1.343z" />
         </svg>
