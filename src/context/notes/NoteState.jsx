@@ -41,7 +41,7 @@ const NoteState = (props) => {
       if(response.status === 400) {
         setError(data.errors);
       }
-      setNotes(data);
+      // setNotes(data);
     } catch (err) {
       console.log('ERROR: ', err.message);
       setError(err.message);
@@ -63,12 +63,14 @@ const NoteState = (props) => {
         }
       );
       const data = await response.json();
-      setNotes(data);
+      console.log(data);
+      // setNotes(data);
     } catch (err) {
       setError(err.message);
     }
-    const updatedNotes = notes.filter((note) => note._id !== id);
-    setNotes(updatedNotes);
+    // const updatedNotes = notes.filter((note) => note._id !== id);
+    // setNotes(updatedNotes);
+    getAllNotes();
   };
 
   return (

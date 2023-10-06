@@ -1,24 +1,31 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import noteContext from "../context/notes/note-context";
 import Card from "./UI/Card";
 import AddNote from "./AddNote";
+import Alert from "./UI/Alert";
 
 const Home = (props) => {
-  const { notes, error, getAllNotes } = useContext(noteContext);
-  
-  const errorInAddNote = (err) => {
-    // 
-  };
+  const [showAlert, setShowAlert] = useState(false);
+  const { notes, getAllNotes, error } = useContext(noteContext);
 
   useEffect(() => {
-    getAllNotes()
+    getAllNotes();
   }, []);
+
+  const closeAlert = () => {
+    setShowAlert(false);
+  };
 
   return (
     <>
+      {/* {error &&  (
+        <div className="flex items-center justify-center">
+          <Alert err={error[0].msg} onClick={closeAlert} />
+        </div>
+      )} */}
       <p className="m-4">Welcome user, to SyncDiary!</p>
       <div className="flex items-center justify-center">
-        <AddNote err={errorInAddNote} />
+        <AddNote />
       </div>
       {notes.length > 0 ? (
         <div className="flex items-center justify-center h-auto w-screen overflow-y-hidden">

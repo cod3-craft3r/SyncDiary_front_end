@@ -3,23 +3,12 @@ import NoteState from "./context/notes/NoteState";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Modal from "./components/UI/Modal";
-import Alert from "./components/UI/Alert";
 
 function App() {
   const [theme, setTheme] = useState("dark");
-  const [showAlert, setShowAlert] = useState(false);
-  const [error, setError] = useState('');
 
   const toggleTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
-  };
-
-  const caughtError = () => {
-    setShowAlert(true);
-  };
-
-  const closeAlert = () => {
-    setShowAlert(false);
   };
 
   return (
@@ -28,11 +17,7 @@ function App() {
     >
       <NoteState>
         {/* <Modal /> */}
-        <Navbar setMode={toggleTheme} />
-
-        {showAlert && <div className="flex items-center justify-center">
-          <Alert err={error} onClick={closeAlert} />
-        </div>}
+        <Navbar setMode={toggleTheme} mode={theme} />
         <Home />
       </NoteState>
     </div>

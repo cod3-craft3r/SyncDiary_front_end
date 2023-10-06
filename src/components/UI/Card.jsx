@@ -39,7 +39,7 @@ const Card = ({ note }) => {
       </h3>
       <p>{note.descr}</p>
       <p className="flex mt-2 font-thin text-xs text-accent">
-        <span>
+        <span className='text-white bg-accent rounded-xl pl-1 pr-1'>
           <em>{note.tag}</em>
         </span>
         <span>

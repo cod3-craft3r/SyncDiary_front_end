@@ -1,11 +1,10 @@
 import { useContext, useState } from "react";
 import noteContext from "../context/notes/note-context";
 
-const AddNote = (props) => {
+const AddNote = () => {
   const [userTouchedTitle, setUserTouchedTitle] = useState(false);
   const [userTouchedDescr, setUserTouchedDescr] = useState(false);
   const [note, setNote] = useState({ title: "", descr: "", tag: "" });
-  // const [errorState, setErrorState] = useState(false);
   const { addNote, error } = useContext(noteContext);
 
   const handleChange = (event) => {
@@ -14,16 +13,6 @@ const AddNote = (props) => {
 
   const addNoteHandler = (e) => {
     e.preventDefault();
-    // if (note.title.length === 0) {
-    //   // setErrorState(true);
-    //   props.err('Title cannot be empty');
-    //   return;
-    // }
-    // if (note.title.length === 0) {
-    //   // setErrorState(true);
-    //   props.err('Descr cannot be empty');
-    //   return;
-    // }
     addNote(note);
     setNote({ title: "", descr: "", tag: "" });
     setUserTouchedTitle(false);
@@ -38,7 +27,7 @@ const AddNote = (props) => {
           <label htmlFor="title">Title <span className=" text-red-700 mt-3">*</span></label>
           <input
             value={note.title}
-            className={`block outline-none rounded-md p-2 w-72 text-text bg-secondary ${userTouchedTitle && note.title.length === 0 ? 'border-red-700 border-2' : 'border-transparent'}`}
+            className={`block outline-none rounded-md p-2 w-72 text-text bg-secondary ${userTouchedTitle && note.title.length === 0 ? 'border-red-700 border-2' : 'border-transparent'} placeholder-slate-500`}
             type="text"
             name="title"
             id="title"
@@ -50,7 +39,7 @@ const AddNote = (props) => {
           <label htmlFor="descr">Description <span className=" text-red-700 mt-3">*</span></label>
           <input
             value={note.descr}
-            className={`block outline-none rounded-md p-2 w-72 text-text bg-secondary ${userTouchedDescr && note.descr.length === 0 ? 'border-red-700 border-2' : 'border-transparent'}`}
+            className={`block outline-none rounded-md p-2 w-72 text-text bg-secondary ${userTouchedDescr && note.descr.length === 0 ? 'border-red-700 border-2' : 'border-transparent'} placeholder-slate-500`}
             type="text"
             name="descr"
             id="descr"
@@ -62,7 +51,7 @@ const AddNote = (props) => {
           <label htmlFor="tag"><span className="mt-3">Tag</span></label>
           <input
             value={note.tag}
-            className="block rounded-md p-2 border-none outline-none w-72 text-text bg-secondary mb-3"
+            className="block rounded-md p-2 border-none outline-none w-72 text-text bg-secondary mb-3 placeholder-slate-500"
             type="text"
             name="tag"
             id="tag"
