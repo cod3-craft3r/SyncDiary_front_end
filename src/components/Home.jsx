@@ -18,7 +18,7 @@ const Home = (props) => {
 
   return (
     <>
-      {/* {error &&  (
+      {/* [todo) {error &&  (
         <div className="flex items-center justify-center">
           <Alert err={error[0].msg} onClick={closeAlert} />
         </div>
