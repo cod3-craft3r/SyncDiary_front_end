@@ -2,7 +2,6 @@ import { useState } from "react";
 import NoteState from "./context/notes/NoteState";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-import Modal from "./components/UI/Modal";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -18,7 +17,7 @@ function App() {
       <NoteState>
         {/* <Modal /> */}
         <Navbar setMode={toggleTheme} mode={theme} />
-        <Home />
+        <Home mode={theme} />
       </NoteState>
     </div>
   );

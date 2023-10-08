@@ -35,7 +35,7 @@ const Home = (props) => {
                 className="w-1/5 sm:w-1/4 md:w-1/3 lg:w-1/2 xl:w-full"
                 key={note._id}
               >
-                <Card note={note} />
+                <Card note={note} mode={props.mode} />
               </div>
             ))}
           </div>
