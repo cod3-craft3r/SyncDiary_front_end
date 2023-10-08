@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'headings': ['"Shippori Mincho"','serif'],
+        'body': ['"Noto Serif Tamil"', 'serif']
+      },
       colors: {
         'text': 'var(--text)',
         'background': 'var(--background)',

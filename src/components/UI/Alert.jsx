@@ -4,7 +4,7 @@ function Alert({ err, onClick }) {
   };
 
   return (
-    <div className="relative w-80 bg-primary text-black rounded-md p-2">
+    <div className="relative w-80 bg-accent text-black rounded-md p-2">
       <div
         className="cursor-pointer absolute top-2 right-2"
         onClick={clickHandler}
@@ -23,7 +23,7 @@ function Alert({ err, onClick }) {
         </svg>
       </div>
       <div className="flex flex-col justify-center items-center">
-        <p>{err}</p>
+        <p className="p-4">{err}</p>
       </div>
     </div>
   );
