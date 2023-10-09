@@ -1,9 +1,9 @@
 const Navbar = (props) => {
   return (
-    <div className="items-center justify-center w-screen h-10 bg-secondary p-2 text-center">
+    <div className="items-center justify-center w-screen h-10 bg-primary p-2 text-center">
       <a
         href="http://localhost:5173/"
-        className="text-primary text-xl font-semibold"
+        className="text-secondary text-xl font-semibold"
       >
         SyncDiary
       </a>

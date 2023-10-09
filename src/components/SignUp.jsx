@@ -2,8 +2,10 @@ import { useState } from "react";
 import Alert from "./UI/Alert";
 
 const SignUp = (props) => {
-  const [userTouchedTitle, setUserTouchedTitle] = useState(false);
-  const [userTouchedDescr, setUserTouchedDescr] = useState(false);
+  const [userTouchedName, setUserTouchedName] = useState(false);
+  const [userTouchedEmail, setUserTouchedEmail] = useState(false);
+  const [userTouchedPasscode, setUserTouchedPasscode] = useState(false);
+  const [userTouchedCPasscode, setUserTouchedCPasscode] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [credentials, setCredentials] = useState({
@@ -54,9 +56,11 @@ const SignUp = (props) => {
       setErrorMessage("passcodes do not match");
     }
 
-    // setCredentials({ name: "", email: "", password: "", cpassword: "" });
-    setUserTouchedTitle(false);
-    setUserTouchedDescr(false);
+    setCredentials({ name: "", email: "", password: "", cpassword: "" });
+    setUserTouchedName(false);
+    setUserTouchedEmail(false);
+    setUserTouchedPasscode(false)
+    setUserTouchedCPasscode(false)
   };
 
   const closeAlert = () => {
@@ -84,16 +88,16 @@ const SignUp = (props) => {
             <input
               value={credentials.name}
               className={`block outline-none rounded-md p-2 w-72 text-text bg-secondary placeholder-slate-500 mb-2 ${
-                userTouchedTitle && credentials.name.length === 0
+                userTouchedName && credentials.name.length === 0
                   ? "border-red-700 border-2"
                   : "border-transparent"
               }`}
               type="text"
               name="name"
               id="name"
-              placeholder="e.g. Learn a new skill"
+              placeholder="John Doe"
               onChange={handleChange}
-              onClick={() => setUserTouchedTitle(true)}
+              onClick={() => setUserTouchedName(true)}
             />
             {/* {error.length > 0 && error[0].path === "name" ? (
             <p className={`text-red-700`}>{error[0].msg}</p>
@@ -106,16 +110,16 @@ const SignUp = (props) => {
             <input
               value={credentials.email}
               className={`block outline-none rounded-md p-2 w-72 text-text bg-secondary placeholder-slate-500 mb-2 ${
-                userTouchedDescr && credentials.email.length === 0
+                userTouchedEmail && credentials.email.length === 0
                   ? "border-red-700 border-2"
                   : "border-transparent"
               }`}
               type="email"
               name="email"
               id="email"
-              placeholder="e.g. Give 30 min daily for the new skill"
+              placeholder="john.doe@email.com"
               onChange={handleChange}
-              onClick={() => setUserTouchedDescr(true)}
+              onClick={() => setUserTouchedEmail(true)}
             />
             {/* {error.length > 0 ? (
             <p className={`text-red-700`}>
@@ -136,15 +140,16 @@ const SignUp = (props) => {
             <input
               value={credentials.password}
               className={`block outline-none rounded-md p-2 w-72 text-text bg-secondary placeholder-slate-500 mb-2 ${
-                userTouchedDescr && credentials.password.length === 0
+                userTouchedPasscode && credentials.password.length === 0
                   ? "border-red-700 border-2"
                   : "border-transparent"
               }`}
               type="password"
               name="password"
               id="password"
-              placeholder="e.g. self-growth"
+              placeholder="strong passcode"
               onChange={handleChange}
+              onClick={() => setUserTouchedPasscode(true)}
             />
             <label htmlFor="cpassword">
               Confirm Passcode <span className=" text-red-700 mt-3">*</span>
@@ -152,15 +157,16 @@ const SignUp = (props) => {
             <input
               value={credentials.cpassword}
               className={`block outline-none rounded-md p-2 w-72 text-text bg-secondary placeholder-slate-500 mb-2 ${
-                userTouchedDescr && credentials.cpassword.length === 0
+                userTouchedCPasscode && credentials.cpassword.length === 0
                   ? "border-red-700 border-2"
                   : "border-transparent"
               }`}
               type="password"
               name="cpassword"
               id="cpassword"
-              placeholder="e.g. self-growth"
+              placeholder="strong passcode"
               onChange={handleChange}
+              onClick={() => {setUserTouchedCPasscode(true)}}
             />
             <button
               className="items-center justify-center mt-2 mb-2 bg-primary rounded-md p-1"
